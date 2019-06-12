@@ -1,0 +1,1114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QUIMain</class>
+ <widget class="QWidget" name="QUIMain">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1081</width>
+    <height>691</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Video Batch Render</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background : #333333;</string>
+  </property>
+  <layout class="QVBoxLayout" name="vloMain">
+   <item>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <layout class="QVBoxLayout" name="vloBatch">
+       <property name="rightMargin">
+        <number>2</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="hloBatch">
+         <item>
+          <widget class="QPushButton" name="btnBatchAdd">
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+           </property>
+           <property name="text">
+            <string>Add Video</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnBatchRemove">
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+           </property>
+           <property name="text">
+            <string>Remove Video</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnBatchClear">
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+           </property>
+           <property name="text">
+            <string>Clear</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="tblBatch">
+         <property name="styleSheet">
+          <string notr="true">QHeaderView::section{
+	border-style : outset;
+	border-width : 1px;
+	border-color : #c9c9c9;
+}
+
+QTableWidget{
+	selection-color: rgb(245, 245, 245);
+	selection-background-color: rgb(85, 85, 85);
+	color: rgb(243, 243, 243);
+}</string>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::SingleSelection</enum>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+         <property name="gridStyle">
+          <enum>Qt::DotLine</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_2">
+      <layout class="QVBoxLayout" name="vloMid">
+       <property name="leftMargin">
+        <number>2</number>
+       </property>
+       <property name="rightMargin">
+        <number>2</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="hloLoad">
+         <item>
+          <layout class="QVBoxLayout" name="vloIntro">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QPushButton" name="btnIntroLoad">
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+               </property>
+               <property name="text">
+                <string>Load Intro</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnIntroClear">
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+               </property>
+               <property name="text">
+                <string>Clear Intro</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblIntroTitle">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+	color : white;
+}</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblIntroPreview">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>120</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="vloLogo">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QPushButton" name="btnLogoLoad">
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+               </property>
+               <property name="text">
+                <string>Load Logo</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnLogoClear">
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+               </property>
+               <property name="text">
+                <string>Clear Logo</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblLogoTitle">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+	color : white;
+}</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblLogoPreview">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>120</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="vloOutro">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QPushButton" name="btnOutroLoad">
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+               </property>
+               <property name="text">
+                <string>Load Outro</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnOutroClear">
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+               </property>
+               <property name="text">
+                <string>Clear Outro</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblOutroTitle">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+	color : white;
+}</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblOutroPreview">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>120</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="vloVideo">
+         <item>
+          <widget class="QFrame" name="frmVideo">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_12">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="lblVideo">
+              <property name="font">
+               <font>
+                <family>Rosewood Std Regular</family>
+                <pointsize>30</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel{
+color: rgb(165, 165, 165);
+	color: rgb(132, 132, 132);
+}</string>
+              </property>
+              <property name="text">
+               <string>Not Available</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="hloPreview">
+           <item>
+            <spacer name="spaPreviewLeft">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnPlay">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+             </property>
+             <property name="text">
+              <string>Play</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="spaPreviewRight">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="hloTime">
+           <item>
+            <widget class="QLabel" name="lblTimeCur">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+	color : white;
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="text">
+              <string>00:00:00.000</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="sldTime">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>35</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QSlider::handle{
+	background : grey;
+}
+QSlider::handle:hover{
+	background : #c9c9c9;
+}
+QSlider::handle:pressed{
+	background : #474747;
+}
+QSlider::handle:disabled {
+	background: #d6d6d6;
+}
+QSlider::handle:hover:disabled {
+	background: #d6d6d6;
+}
+QSlider::handle:pressed:disabled {
+	background: #d6d6d6;
+}</string>
+             </property>
+             <property name="maximum">
+              <number>9999</number>
+             </property>
+             <property name="pageStep">
+              <number>1000</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="tickPosition">
+              <enum>QSlider::TicksBothSides</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblTimeTotal">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+	color : white;
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="text">
+              <string>00:00:00.000</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="vloRender">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="hloRender">
+           <item>
+            <spacer name="spaRenderLeft">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnRender">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+             </property>
+             <property name="text">
+              <string>Render</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="spaRenderRight">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="vloStage">
+           <property name="spacing">
+            <number>3</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="lblStage">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+	color : white;
+}</string>
+             </property>
+             <property name="text">
+              <string>Stage</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QProgressBar" name="prgStage">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>17</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QProgressBar {
+  background-color: #2c2c2c;
+  border: 1px solid #3d3d3d;
+  color: #F0F0F0;
+  text-align: center;
+}
+
+QProgressBar::chunk {
+  background-color: #797979;
+  color: #19232D;
+}
+</string>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="vloUnit">
+           <property name="spacing">
+            <number>3</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="lblUnit">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+	color : white;
+}</string>
+             </property>
+             <property name="text">
+              <string>Unit</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QProgressBar" name="prgUnit">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>17</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QProgressBar {
+  background-color: #2c2c2c;
+  border: 1px solid #3d3d3d;
+  color: #F0F0F0;
+  text-align: center;
+}
+
+QProgressBar::chunk {
+  background-color: #797979;
+  color: #19232D;
+}
+</string>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="vloTotal">
+           <property name="spacing">
+            <number>3</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="lblTotal">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+	color : white;
+}</string>
+             </property>
+             <property name="text">
+              <string>Total</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QProgressBar" name="prgTotal">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>17</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QProgressBar {
+  background-color: #2c2c2c;
+  border: 1px solid #3d3d3d;
+  color: #F0F0F0;
+  text-align: center;
+}
+
+QProgressBar::chunk {
+  background-color: #797979;
+  color: #19232D;
+}
+</string>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_10">
+      <layout class="QVBoxLayout" name="vloCaption">
+       <property name="leftMargin">
+        <number>2</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="hloCaption">
+         <item>
+          <widget class="QPushButton" name="btnCaptionAdd">
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+           </property>
+           <property name="text">
+            <string>Add Caption</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnCaptionRemove">
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+           </property>
+           <property name="text">
+            <string>Remove Caption</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnCaptionClear">
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+           </property>
+           <property name="text">
+            <string>Clear</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="tblCaption">
+         <property name="styleSheet">
+          <string notr="true">QHeaderView::section{
+	border-style : outset;
+	border-width : 1px;
+	border-color : #c9c9c9;
+}
+
+QTableWidget{
+	selection-color: rgb(245, 245, 245);
+	selection-background-color: rgb(85, 85, 85);
+	color: rgb(243, 243, 243);
+}</string>
+         </property>
+         <property name="showGrid">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblCaptionFont">
+         <property name="font">
+          <font>
+           <family>FZCuHeiSongS-B-GB</family>
+           <pointsize>16</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	color : white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="text">
+          <string>Sample Caption</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="hloCaptionStore">
+         <item>
+          <widget class="QPushButton" name="btnCaptionSave">
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+           </property>
+           <property name="text">
+            <string>Save Caption List</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnCaptionLoad">
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+           </property>
+           <property name="text">
+            <string>Load Caption List</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnCaptionFont">
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+	color : white;
+	background : grey;
+	padding : 8px 5px;
+	border-radius : 3px;
+	min-width : 60px;
+}
+QPushButton:hover{
+	background : #c9c9c9;
+}
+
+QPushButton:pressed{
+	background : #474747;
+}
+
+QPushButton:disabled{
+	color : #474747;
+}</string>
+           </property>
+           <property name="text">
+            <string>Caption Font</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

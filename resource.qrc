@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/caption_back_down.png</file>
+        <file>img/caption_back_mid.png</file>
+        <file>img/caption_back_up.png</file>
+    </qresource>
+</RCC>
